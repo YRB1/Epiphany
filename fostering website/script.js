@@ -245,30 +245,59 @@ function bootstrap() {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span style="display:inline-block;animation:spin .8s linear infinite">⟳</span> Sending…';
 
-      try {
-        const body = {
-          first:    form.first.value.trim(),
-          last:     form.last.value.trim(),
-          email:    form.email.value.trim(),
-          phone:    form.phone.value.trim(),
-          interest: interestVal ? interestVal.value : 'info',
-          message:  form.message ? form.message.value.trim() : ''
-        };
-        if (form.org       && form.org.value)       body.org       = form.org.value.trim();
-        if (form.child_age && form.child_age.value) body.child_age = form.child_age.value.trim();
-        if (form.urgency   && form.urgency.value)   body.urgency   = form.urgency.value;
+      const body = {
+        first:    form.first.value.trim(),
+        last:     form.last.value.trim(),
+        email:    form.email.value.trim(),
+        phone:    form.phone.value.trim(),
+        interest: interestVal ? interestVal.value : 'info',
+        message:  form.message ? form.message.value.trim() : ''
+      };
+      if (form.org       && form.org.value)       body.org       = form.org.value.trim();
+      if (form.child_age && form.child_age.value) body.child_age = form.child_age.value.trim();
+      if (form.urgency   && form.urgency.value)   body.urgency   = form.urgency.value;
 
-        const res = await fetch('/api/enquiry', {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify(body)
-        });
-        if (!res.ok) {
-          const d = await res.json().catch(() => ({}));
-          console.warn('[form]', d.error || 'Server error');
-        }
-      } catch (err) {
-        console.warn('[form]', err.message);
+      // Build enquiry object
+      const enquiry = {
+        id: 'enq_' + Date.now(),
+        timestamp: new Date().toISOString(),
+        first: body.first,
+        last: body.last,
+        email: body.email,
+        phone: body.phone,
+        interest: body.interest,
+        message: body.message || '',
+        org: body.org || '',
+        child_age: body.child_age || '',
+        urgency: body.urgency || '',
+        status: 'new',
+        notes: [],
+        assignedTo: null
+      };
+
+      // Save to localStorage
+      const saved = JSON.parse(localStorage.getItem('efc_enquiries') || '[]');
+      saved.unshift(enquiry);
+      localStorage.setItem('efc_enquiries', JSON.stringify(saved));
+
+      // Send via EmailJS — replace the three YOUR_* values after EmailJS setup
+      // See: https://www.emailjs.com/docs/sdk/send/
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send(
+          'YOUR_EMAILJS_SERVICE_ID',   // e.g. 'service_abc123'
+          'YOUR_EMAILJS_TEMPLATE_ID',  // e.g. 'template_xyz789'
+          {
+            from_name:    body.first + ' ' + body.last,
+            reply_to:     body.email,
+            phone:        body.phone,
+            enquiry_type: body.interest,
+            message:      body.message || '(no message)',
+            org:          body.org || 'N/A',
+            child_info:   body.child_age || 'N/A',
+            urgency:      body.urgency || 'N/A'
+          },
+          'YOUR_EMAILJS_PUBLIC_KEY'    // e.g. 'abc_XYZabcXYZ'
+        ).catch(err => console.warn('[EmailJS]', err));
       }
 
       gsap.to(formInner, {

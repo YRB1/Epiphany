@@ -20,6 +20,7 @@
   "name": "Epiphany Foster Care",
   "url": "https://www.epiphanyfostercare.org.uk",
   "employee": [
+    {"@type":"Person","name":"Rose Katana","jobTitle":"Chief Executive Officer"},
     {"@type":"Person","name":"Dr. Amara Osei-Bonsu","jobTitle":"Executive Director and Responsible Individual"},
     {"@type":"Person","name":"Sarah Adeyemi-Clarke","jobTitle":"Registered Manager"},
     {"@type":"Person","name":"Marcus Thompson","jobTitle":"Senior Supervising Social Worker"},
@@ -62,10 +63,26 @@
 .tj-inner h2{color:#fff;margin-bottom:.9rem}
 .tj-inner p{color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:2rem}
 .tj-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.ceo-card{display:grid;grid-template-columns:420px 1fr;gap:0;background:#fff;border-radius:2rem;overflow:hidden;border:1px solid rgba(44,26,107,.06);box-shadow:0 32px 80px rgba(44,26,107,.1);margin-bottom:2.5rem;position:relative}
+.ceo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#E8A020,#f5bc3e)}
+.ceo-img{position:relative;overflow:hidden}
+.ceo-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ceo-img-tint{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(255,255,255,.15))}
+.ceo-body{padding:2.75rem;display:flex;flex-direction:column;justify-content:center}
+.ceo-badge-row{display:flex;align-items:center;gap:.6rem;margin-bottom:1.1rem}
+.ceo-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--gold);color:var(--purple-d);font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.32rem .85rem;border-radius:99px}
+.ceo-ri-badge{display:inline-flex;align-items:center;gap:.35rem;background:rgba(44,26,107,.08);color:var(--purple);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.32rem .85rem;border-radius:99px}
+.ceo-name{font-family:var(--f-serif);font-size:2rem;font-weight:700;color:var(--purple);line-height:1.1;margin-bottom:.3rem}
+.ceo-role{font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.2rem}
+.ceo-qual{font-size:.78rem;color:var(--muted);margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(44,26,107,.07)}
+.ceo-bio{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.1rem}
+.ceo-quote{padding:1.1rem 1.25rem;background:var(--cream);border-radius:.85rem;border-left:3px solid var(--gold);font-style:italic;font-size:.84rem;color:var(--purple);line-height:1.65}
 @media(max-width:960px){
   .team-page-grid{grid-template-columns:repeat(2,1fr)}
   .team-values-inner{grid-template-columns:1fr}
   .team-page{padding:4rem 0}
+  .ceo-card{grid-template-columns:1fr}
+  .ceo-img{height:340px}
 }
 @media(max-width:640px){
   .team-page-grid{grid-template-columns:1fr}
@@ -141,6 +158,31 @@
 <!-- TEAM GRID -->
 <section class="team-page">
   <div class="wrap">
+
+    <!-- Rose Katana — CEO Featured Card -->
+    <div class="ceo-card r">
+      <div class="ceo-img">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80&auto=format&fit=crop" alt="Rose Katana — Chief Executive Officer" loading="eager">
+        <div class="ceo-img-tint"></div>
+      </div>
+      <div class="ceo-body">
+        <div class="ceo-badge-row">
+          <span class="ceo-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5Z"/></svg>
+            Chief Executive Officer
+          </span>
+          <span class="ceo-ri-badge">Founder</span>
+          <span class="ceo-ri-badge">Responsible Individual</span>
+        </div>
+        <div class="ceo-name">Rose Katana</div>
+        <div class="ceo-role">Chief Executive Officer &amp; Founder</div>
+        <div class="ceo-qual">MSc Social Work Leadership &nbsp;·&nbsp; CQSW &nbsp;·&nbsp; 20+ years experience</div>
+        <p class="ceo-bio">Rose founded Epiphany Foster Care with a bold and clear vision: to transform foster care through genuine cultural competence, exceptional practice standards, and an unshakeable commitment to every child's identity and wellbeing. With over two decades of experience across statutory children's services, senior management, and agency leadership, Rose built Epiphany from the ground up as the agency she always believed the sector needed.</p>
+        <p class="ceo-bio">Under Rose's leadership, Epiphany has become one of the most respected specialist independent fostering agencies in the East Midlands, recognised for its UASC expertise, its culturally affirming approach, and the extraordinary quality of its carer support. She remains actively involved in practice, in the lives of the families we support, and in shaping policy at a national level.</p>
+        <div class="ceo-quote">"Every child who comes into care deserves not just safety — they deserve to be truly known. That is the standard I hold us to, every single day."</div>
+      </div>
+    </div>
+
     <div class="team-page-grid">
       <div class="team-card-full r d1">
         <div class="tcf-img">
@@ -220,8 +262,8 @@
           <div class="tcf-quote">"Our training programme is built on real experiences from carers and children. Every session is designed to make a practical difference."</div>
         </div>
       </div>
-    </div>
-  </div>
+    </div><!-- /team-page-grid -->
+  </div><!-- /wrap -->
 </section>
 
 <!-- TEAM VALUES -->

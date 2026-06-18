@@ -22,7 +22,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Epiphany Foster Care","description":"Independent fostering agency providing safe, stable and culturally affirming homes for children and young people.","url":"https://www.epiphanyfostercare.org.uk","telephone":"+448001234567","email":"info@epiphanyfostercare.org.uk","address":{"@type":"PostalAddress","addressLocality":"London","addressRegion":"England","addressCountry":"GB"}}</script>
+<!-- EmailJS SDK — used by the contact form to email enquiries to the team -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Google Identity Services — used by the staff login page (login.html) -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Epiphany Foster Care","description":"Independent fostering agency providing safe, stable and culturally affirming homes for children and young people.","url":"https://www.epiphanyfostercare.org.uk","telephone":"+448001234567","email":"info@epiphanyfostercare.org.uk","address":{"@type":"PostalAddress","streetAddress":"New Walk","addressLocality":"Leicester","addressRegion":"Leicestershire","postalCode":"LE1 7EA","addressCountry":"GB"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who can become a foster carer with Epiphany?","acceptedAnswer":{"@type":"Answer","text":"We welcome applications from people of all backgrounds, ethnicities, faiths, and family structures. You must be over 21 with a spare bedroom and the capacity to provide a nurturing, safe home."}},{"@type":"Question","name":"What support will I receive?","acceptedAnswer":{"@type":"Answer","text":"Every carer receives a dedicated Supervising Social Worker, 24/7 emergency support, regular training, peer groups, therapeutic consultation, and a comprehensive tailored support package."}}]}</script>
 </head>
 <body>
@@ -63,6 +67,10 @@
       <a href="blog.html">Blog</a>
     </div>
     <div class="nav-right">
+      <a href="login.html" class="nav-tel" style="gap:.35rem;background:rgba(232,160,32,.08);border:1px solid rgba(232,160,32,.25);border-radius:8px;padding:.35rem .75rem;font-size:.74rem;font-weight:700;color:var(--gold)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Staff Portal
+      </a>
       <a href="tel:08001234567" class="nav-tel">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.22 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.46-.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         0800 123 4567
@@ -248,7 +256,7 @@
       <div class="about-copy">
         <p class="overline">Our Story</p>
         <h2 class="h2">An agency born from a <span class="g-text">belief in every child</span></h2>
-        <p>Epiphany Foster Care was founded by social work professionals who recognised a gap: children from Black, Asian, and minority ethnic backgrounds were consistently being placed with carers who lacked the cultural knowledge and competence to truly support their identities and wellbeing.</p>
+        <p>Epiphany Foster Care was founded by <strong>Rose Katana</strong>, a social work leader with over 20 years of experience, who recognised a gap: children from Black, Asian, and minority ethnic backgrounds were consistently being placed with carers who lacked the cultural knowledge and competence to truly support their identities and wellbeing.</p>
         <p>We exist to change that. Our agency was built on the conviction that cultural identity is not a secondary concern; it is central to every child's sense of self, belonging, and ability to thrive. We provide the specialist skills, training, and support to make culturally affirming care a reality.</p>
         <p>While our founding expertise is in culturally responsive care, we are an inclusive agency that warmly welcomes carers and children from every background. Our trauma-informed, relationship-based, deeply child-centred approach benefits every placement we support.</p>
 
@@ -596,7 +604,24 @@
       <p>Our team of qualified, experienced social work professionals brings a genuine mix of lived experience and professional expertise. We are united by a shared belief: that every child deserves exceptional care.</p>
     </div>
     <div class="team-grid">
-      <div class="team-card r d1">
+      <!-- Rose Katana — CEO featured card (full width) -->
+      <div class="team-card r d1" style="grid-column:1/-1;display:grid;grid-template-columns:240px 1fr;border:2px solid rgba(232,160,32,.4);box-shadow:0 24px 64px rgba(44,26,107,.14)">
+        <div class="tc-img" style="border-radius:0;aspect-ratio:auto">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop" alt="Rose Katana — CEO" loading="eager" style="height:100%;object-position:top center">
+          <div class="tc-tint"></div>
+        </div>
+        <div class="tc-body" style="background:#fff;border-radius:0 1.75rem 1.75rem 0;padding:1.75rem 2rem">
+          <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.75rem">
+            <span style="background:var(--gold);color:#1a0f40;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:99px">CEO &amp; Founder</span>
+            <span style="background:rgba(44,26,107,.09);color:var(--purple);font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .7rem;border-radius:99px">Responsible Individual</span>
+          </div>
+          <div class="tc-name">Rose Katana</div>
+          <div class="tc-role">Chief Executive Officer &amp; Founder</div>
+          <div class="tc-qual">MSc Social Work Leadership · CQSW · 20+ years</div>
+          <div class="tc-stmt">"Every child who comes into care deserves not just safety — they deserve to be truly known. That is the standard I hold us to, every single day."</div>
+        </div>
+      </div>
+      <div class="team-card r d2">
         <div class="tc-img">
           <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&auto=format&fit=crop&face" alt="Dr. Amara Osei-Bonsu" loading="lazy">
           <div class="tc-tint"></div>
@@ -608,7 +633,7 @@
           <div class="tc-stmt">"I founded Epiphany because I believe every child has the right to a home where their story is honoured, not just their placement needs."</div>
         </div>
       </div>
-      <div class="team-card r d2">
+      <div class="team-card r d3">
         <div class="tc-img">
           <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&auto=format&fit=crop&face" alt="Sarah Adeyemi-Clarke" loading="lazy">
           <div class="tc-tint"></div>
@@ -1206,8 +1231,8 @@
             <div class="cd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
               <div class="cd-label">Head Office</div>
-              <div class="cd-val">London, England</div>
-              <div class="cd-sub">Covering placements UK-wide</div>
+              <div class="cd-val">Leicester, Leicestershire</div>
+              <div class="cd-sub">Covering placements across England</div>
             </div>
           </div>
           <div class="cd-item">
@@ -1311,7 +1336,7 @@
             <div class="logo-sub">Independent Fostering Agency</div>
           </div>
         </a>
-        <p>Providing safe, stable, and culturally affirming homes for children and young people. Registered with Ofsted. All children and carers welcome.</p>
+        <p>Providing safe, stable, and culturally affirming homes for children and young people. Based in Leicester, Leicestershire. Registered with Ofsted. All children and carers welcome.</p>
         <div class="foot-socials">
           <a href="#" class="soc" aria-label="Facebook">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -1368,12 +1393,12 @@
           <li><a href="mailto:info@epiphanyfostercare.org.uk">info@epiphanyfostercare.org.uk</a></li>
           <li><a href="mailto:referrals@epiphanyfostercare.org.uk">Referrals Email</a></li>
           <li><a href="#contact">Online Enquiry</a></li>
-          <li><a href="/admin">Staff Login</a></li>
+          <li><a href="login.html">Staff Login</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <p class="foot-legal">&copy; 2024 Epiphany Foster Care Ltd. Registered in England &amp; Wales. Ofsted Registered. All rights reserved. <a href="#" style="color:inherit;text-decoration:underline">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:inherit;text-decoration:underline">Complaints Policy</a></p>
+      <p class="foot-legal">&copy; 2025 Epiphany Foster Care Ltd. Registered in England &amp; Wales. Ofsted Registered. All rights reserved. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy &amp; Cookies Policy</a> &nbsp;|&nbsp; <a href="#contact" style="color:inherit;text-decoration:underline">Complaints Policy</a> &nbsp;|&nbsp; <button onclick="localStorage.removeItem('efc_cookie_consent');document.getElementById('cookie-banner').style.display='block'" style="background:none;border:none;color:inherit;font:inherit;font-size:.72rem;text-decoration:underline;cursor:pointer;padding:0">Manage Cookies</button></p>
       <div class="foot-love">
         Made with
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -1395,9 +1420,68 @@
   </div>
 </div>
 
+<!-- ═══════════ COOKIE CONSENT BANNER ═══════════ -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite" style="
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:99999;
+  background:#1a0f40;
+  border-top:2px solid rgba(232,160,32,.4);
+  padding:1.25rem 1.5rem;
+  font-family:'Inter',system-ui,sans-serif;
+  box-shadow:0 -8px 40px rgba(0,0,0,.35);
+">
+  <div style="max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <p style="color:#fff;font-size:.82rem;line-height:1.65;margin:0">
+        <span style="font-weight:700;color:#f5bc3e">We use cookies</span> — essential ones to keep the site working, and optional analytics cookies to understand how visitors use our site. No cookies are used for advertising.
+        <a href="privacy.html#s8" style="color:#f5bc3e;text-decoration:underline;text-underline-offset:3px;white-space:nowrap">Cookie policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:.6rem;flex-shrink:0;flex-wrap:wrap">
+      <button id="cookie-reject" style="
+        background:transparent;
+        border:1px solid rgba(255,255,255,.3);
+        color:rgba(255,255,255,.75);
+        font-family:inherit;font-size:.78rem;font-weight:600;
+        padding:.5rem 1.1rem;border-radius:99px;cursor:pointer;
+        transition:border-color .2s,color .2s;
+        white-space:nowrap;
+      ">Essential only</button>
+      <button id="cookie-accept" style="
+        background:#E8A020;
+        border:1px solid #E8A020;
+        color:#1a0f40;
+        font-family:inherit;font-size:.78rem;font-weight:700;
+        padding:.5rem 1.25rem;border-radius:99px;cursor:pointer;
+        transition:background .2s;
+        white-space:nowrap;
+      ">Accept all cookies</button>
+    </div>
+  </div>
+</div>
+
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="script.js" defer></script>
+<script>
+(function() {
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('efc_cookie_consent');
+  if (!consent) {
+    banner.style.display = 'block';
+  }
+  document.getElementById('cookie-accept').addEventListener('click', function() {
+    localStorage.setItem('efc_cookie_consent', 'all');
+    banner.style.display = 'none';
+  });
+  document.getElementById('cookie-reject').addEventListener('click', function() {
+    localStorage.setItem('efc_cookie_consent', 'essential');
+    banner.style.display = 'none';
+  });
+})();
+</script>
 </body>
 </html>
