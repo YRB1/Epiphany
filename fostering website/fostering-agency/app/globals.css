@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #16324F;
+  --teal: #2A9D8F;
+  --cream: #FAF7F2;
+  --white: #FFFFFF;
+  --light-grey: #F5F5F5;
+  --navy-dark: #0f2236;
+  --teal-dark: #1f7a6e;
+  --teal-light: #3bbfb0;
+}
+
+@theme inline {
+  --color-navy: #16324F;
+  --color-teal: #2A9D8F;
+  --color-cream: #FAF7F2;
+  --color-light-grey: #F5F5F5;
+  --color-background: #FAF7F2;
+  --color-foreground: #16324F;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--navy);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--teal);
+  border-radius: 3px;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-navy {
+  background: rgba(22, 50, 79, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #2A9D8F, #16324F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-light {
+  background: linear-gradient(135deg, #3bbfb0, #7ecfc8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes page-turn {
+  0% { transform: perspective(1200px) rotateY(0deg); }
+  100% { transform: perspective(1200px) rotateY(-180deg); }
+}
+
+.float-anim { animation: float 6s ease-in-out infinite; }
+.float-slow-anim { animation: float-slow 8s ease-in-out infinite; }
+
+/* Perspective for book */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+/* Book page */
+.page-container {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accordion */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Loading screen */
+@keyframes loader-bar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Video overlay gradient */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 50, 79, 0.85) 0%,
+    rgba(22, 50, 79, 0.6) 50%,
+    rgba(42, 157, 143, 0.4) 100%
+  );
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(22, 50, 79, 0.15);
+}
+
+/* Testimonial card */
+.testimonial-shadow {
+  box-shadow: 0 20px 60px rgba(22, 50, 79, 0.1), 0 8px 20px rgba(42, 157, 143, 0.08);
+}
+
+/* Button shimmer */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.btn-shimmer:hover::after {
+  left: 100%;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Section divider wave */
+.wave-divider {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
