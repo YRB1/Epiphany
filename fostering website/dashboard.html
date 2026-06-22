@@ -13,6 +13,11 @@
   --purple:#2C1A6B; --purple-d:#1a0f40; --gold:#E8A020;
   --teal:#2A9D8F; --coral:#E85D4A; --cream:#FAF8F2; --bg:#F4F3F8;
 }
+#cursor{position:fixed;pointer-events:none;z-index:100000;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(232,160,32,.65);transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,background .25s;will-change:left,top;mix-blend-mode:difference}
+#cursor-dot{position:fixed;pointer-events:none;z-index:100001;width:5px;height:5px;border-radius:50%;background:var(--gold);transform:translate(-50%,-50%);will-change:left,top}
+body.cursor-link #cursor{width:52px;height:52px;background:rgba(232,160,32,.14);border-color:rgba(232,160,32,.9)}
+@media(hover:none){#cursor,#cursor-dot{display:none}body{cursor:auto}}
+@media(hover:hover){body{cursor:none}a,button,[role=button]{cursor:none}}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;color:#1f2937;background:var(--bg)}
 a{color:inherit}
@@ -237,6 +242,7 @@ tr.clickable:hover{background:var(--cream)}
 </style>
 </head>
 <body>
+<div id="cursor"></div><div id="cursor-dot"></div>
 <div class="app">
 
   <!-- ── SIDEBAR ─────────────────────── -->
@@ -916,6 +922,18 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'){closeModal();close
 
 $('#hamb').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
 
+/* ── Custom cursor ── */
+(function(){
+  const c=document.getElementById('cursor'),d=document.getElementById('cursor-dot');
+  if(!c||!window.matchMedia('(hover:hover)').matches)return;
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function tick(){cx+=(mx-cx)*.12;cy+=(my-cy)*.12;c.style.left=cx+'px';c.style.top=cy+'px';d.style.left=mx+'px';d.style.top=my+'px';requestAnimationFrame(tick);})();
+  document.querySelectorAll('a,button,[role=button],.nav-item').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-link'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-link'));
+  });
+})();
 /* ── Boot ───────────────────────────────── */
 buildNav();
 refreshBadges();
