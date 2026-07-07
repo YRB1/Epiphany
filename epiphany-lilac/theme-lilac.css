@@ -1,0 +1,157 @@
+/* Lilac colour theme — overrides brand variables from styles.css */
+:root {
+  --purple:   #7C4DBC;
+  --purple-d: #3D1A6B;
+  --purple-m: #9B6DD4;
+  --purple-t: rgba(124,77,188,.08);
+  --gold:     #9B6DD4;
+  --gold-l:   #C084FC;
+  --gold-d:   #7C3AED;
+  --gold-t:   rgba(155,109,212,.12);
+  --teal:     #8B5CF6;
+  --teal-l:   #A78BFA;
+  --teal-d:   #7C3AED;
+  --cream:    #FAF5FF;
+  --sand:     #F0E8FF;
+  --ink:      #1E0B40;
+}
+
+/* Marquee strip */
+.marquee-strip { background: #C084FC; }
+.marquee-item  { color: #2D0A6B; }
+.marquee-dot   { background: rgba(45,10,107,.3); }
+
+/* Hero slice */
+.hero-slice path { fill: #C084FC; }
+
+/* Logo box, loader mark */
+.logo-box,
+.loader-mark { background: linear-gradient(135deg,#9B6DD4,#C084FC); }
+.loader-mark svg path { fill: #3D1A6B; }
+#loader { background: #3D1A6B; }
+
+/* Logo SVG in nav */
+#nav .logo-box svg path { fill: #3D1A6B; }
+
+/* Nav */
+#nav.solid { background: rgba(61,26,107,.97); }
+.nav-links a { color: rgba(255,255,255,.65); }
+.nav-cta { background: #9B6DD4; color: #fff; box-shadow: 0 4px 16px rgba(155,109,212,.4); }
+.nav-cta:hover { background: #C084FC; }
+.nav-refer { background: rgba(192,132,252,.15); border-color: rgba(192,132,252,.4); color: #D4AAFF; }
+.nav-refer:hover { background: #9B6DD4; color: #fff; }
+.nav-tel { color: rgba(255,255,255,.5); }
+
+/* Buttons */
+.btn-gold { background: #9B6DD4; color: #fff; box-shadow: 0 4px 20px rgba(124,77,188,.4); }
+.btn-gold:hover { background: #C084FC; box-shadow: 0 8px 32px rgba(124,77,188,.55); }
+.btn-purple { background: #7C4DBC; }
+.btn-purple:hover { background: #3D1A6B; }
+
+/* Drawer */
+#drawer { background: rgba(61,26,107,.97); }
+
+/* Hero section */
+#hero { background: #3D1A6B; }
+.slide-mask { background: linear-gradient(108deg,rgba(61,26,107,.94) 0%,rgba(61,26,107,.78) 40%,rgba(124,77,188,.5) 70%,rgba(192,132,252,.08) 100%); }
+
+/* Gradient text */
+.g-text {
+  background: linear-gradient(135deg,#9B6DD4 0%,#C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.g-text-teal {
+  background: linear-gradient(135deg,#8B5CF6 0%,#A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Overline accents */
+.overline { color: #C084FC; }
+.overline::before { background: #C084FC; }
+.overline-light { color: #D4AAFF; }
+.overline-light::before { background: #D4AAFF; }
+.overline-teal { color: #A78BFA; }
+.overline-teal::before { background: #A78BFA; }
+
+/* Progress bar */
+#progress-bar { background: linear-gradient(to right,#9B6DD4,#C084FC); }
+
+/* Scrollbar */
+::-webkit-scrollbar-track { background: #3D1A6B; }
+::-webkit-scrollbar-thumb { background: #9B6DD4; }
+
+/* Selection */
+::selection { background: rgba(155,109,212,.25); }
+
+/* Mission band quote highlight */
+#mission-band { background: #7C4DBC; }
+.mb-q span { color: #D4AAFF; }
+.mb-line { background: #9B6DD4; }
+
+/* UASC section */
+#uasc { background: #3D1A6B; }
+.uasc-bg { background: radial-gradient(ellipse 60% 80% at 70% 50%,rgba(192,132,252,.08),transparent); }
+.uasc-pillar { border-left-color: #9B6DD4; }
+
+/* Allowances */
+#payments { background: #3D1A6B; }
+.pay-deco { background: radial-gradient(circle,rgba(192,132,252,.07),transparent 65%); }
+.feat-badge { background: linear-gradient(to right,#9B6DD4,#C084FC); color: #fff; }
+.pay-card.feat { background: rgba(192,132,252,.1); border-color: rgba(192,132,252,.3); }
+
+/* Why diff panel */
+.wd-left { background: #7C4DBC; }
+.wd-left::before { background: radial-gradient(circle,rgba(192,132,252,.12),transparent 65%); }
+.wd-right { background: #3D1A6B; }
+
+/* Contact left */
+.contact-left { background: #7C4DBC; }
+.contact-left::after { background: radial-gradient(circle,rgba(192,132,252,.12),transparent 65%); }
+
+/* Accordion open accent */
+.acc-item.open { border-color: rgba(192,132,252,.3); box-shadow: 0 6px 24px rgba(124,77,188,.07); }
+.acc-item.open .acc-toggle { background: #9B6DD4; }
+.acc-item.open .acc-toggle svg { color: #3D1A6B !important; }
+.acc-q { background: linear-gradient(#9B6DD4,#9B6DD4) no-repeat left bottom / 0% 1px; }
+.acc-item.open .acc-q { background-size: 100% 1px; }
+
+/* Step numbers */
+.step-n {
+  background: linear-gradient(135deg,#9B6DD4,#C084FC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Form */
+.f-group input:focus,
+.f-group textarea:focus,
+.f-group select:focus { border-color: #9B6DD4; box-shadow: 0 0 0 3px rgba(124,77,188,.12); }
+.f-submit { background: #7C4DBC; box-shadow: 0 8px 28px rgba(124,77,188,.28); }
+.f-submit:hover { background: #3D1A6B; box-shadow: 0 14px 40px rgba(124,77,188,.42); }
+
+/* Interest tab active */
+.i-tab.on { background: #7C4DBC; border-color: #7C4DBC; }
+.i-tab:hover { border-color: #9B6DD4; color: #7C4DBC; }
+
+/* Gold utilities */
+.gold { color: #7C3AED; }
+.gold-l { color: #C084FC; }
+
+/* Footer */
+footer { background: #3D1A6B; }
+footer::before { background: linear-gradient(to right,transparent,rgba(192,132,252,.4),transparent); }
+.foot-love svg { color: #9B6DD4; }
+.soc:hover { background: #9B6DD4; border-color: #9B6DD4; }
+.soc:hover svg { color: #fff; }
+
+/* Loader fill */
+.loader-fill { background: linear-gradient(90deg,#9B6DD4,#C084FC); }
+
+/* Cursor */
+#cursor { border-color: rgba(192,132,252,.65); }
+#cursor-dot { background: #9B6DD4; }
